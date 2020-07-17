@@ -403,7 +403,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-07-02
+<strong>Last updated:</strong> 2020-07-17
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -446,12 +446,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20200702code"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Seed:</strong> <code>set.seed(20200702)</code> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20200723code"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Seed:</strong> <code>set.seed(20200723)</code> </a>
 </p>
 </div>
-<div id="strongSeedstrongcodesetseed20200702code" class="panel-collapse collapse">
+<div id="strongSeedstrongcodesetseed20200723code" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The command <code>set.seed(20200702)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+<p>The command <code>set.seed(20200723)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
 </div>
 </div>
 </div>
@@ -494,16 +494,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong6c85c34"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> 6c85c34 </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjdblischakworkflowrspotifytree2eb4639c28c1b77ba6acb81aaeafeba2c001528ctargetblank2eb4639a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jdblischak/workflowr-spotify/tree/2eb4639c28c1b77ba6acb81aaeafeba2c001528c" target="_blank">2eb4639</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrong6c85c34" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjdblischakworkflowrspotifytree2eb4639c28c1b77ba6acb81aaeafeba2c001528ctargetblank2eb4639a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version 6c85c34. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jdblischak/workflowr-spotify/tree/2eb4639c28c1b77ba6acb81aaeafeba2c001528c" target="_blank">2eb4639</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -555,7 +555,41 @@ Message
 Rmd
 </td>
 <td>
-6c85c34
+<a href="https://github.com/jdblischak/workflowr-spotify/blob/2eb4639c28c1b77ba6acb81aaeafeba2c001528c/analysis/spotify.Rmd" target="_blank">2eb4639</a>
+</td>
+<td>
+John Blischak
+</td>
+<td>
+2020-07-17
+</td>
+<td>
+Update Spotify analysis so that it matches how it will appear on the day of the tutorial.
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jdblischak/workflowr-spotify/80f7ef523679f55af24d51cc21535bd0c8e7fa9c/docs/spotify.html" target="_blank">80f7ef5</a>
+</td>
+<td>
+John Blischak
+</td>
+<td>
+2020-07-02
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jdblischak/workflowr-spotify/blob/6c85c3416baf81dcdab2c3cb6fd9469405f88f5b/analysis/spotify.Rmd" target="_blank">6c85c34</a>
 </td>
 <td>
 John Blischak
@@ -605,8 +639,8 @@ dim(spotify)</code></pre>
   edm latin   pop   r&amp;b   rap  rock 
  6043  5155  5507  5431  5746  4951 </code></pre>
 <pre class="r"><code>spotify &lt;- spotify[, 1:13]</code></pre>
-<p>Split the data into training and testing sets.</p>
-<pre class="r"><code>numTrainingSamples &lt;- 3 / 4 * nrow(spotify)
+<p>Split the data into training and testing sets. The training set should have 3/4 of the samples.</p>
+<pre class="r"><code>numTrainingSamples &lt;- nrow(spotify) * 3/4
 trainingSet &lt;- sample(seq_len(nrow(spotify)), size = numTrainingSamples)
 spotifyTraining &lt;- spotify[trainingSet, ]
 spotifyTesting &lt;- spotify[-trainingSet, ]</code></pre>
@@ -616,30 +650,67 @@ model &lt;- rpart(genre ~ ., data = spotifyTraining)
 plot(model)
 text(model)</code></pre>
 <p><img src="figure/spotify.Rmd/classification-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-classification-1">
+Past versions of classification-1.png
+</button>
+</p>
+<div id="fig-classification-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jdblischak/workflowr-spotify/blob/80f7ef523679f55af24d51cc21535bd0c8e7fa9c/docs/figure/spotify.Rmd/classification-1.png" target="_blank">80f7ef5</a>
+</td>
+<td>
+John Blischak
+</td>
+<td>
+2020-07-02
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>Calculate prediction accuracy of the model on the training and testing sets.</p>
 <pre class="r"><code>predictTraining &lt;- predict(model, type = &quot;class&quot;)
 (accuracyTraining &lt;- mean(spotifyTraining[, 1] == predictTraining))</code></pre>
-<pre><code>[1] 0.3920159</code></pre>
+<pre><code>[1] 0.4036712</code></pre>
 <pre class="r"><code>predictTesting &lt;- predict(model, newdata = spotifyTesting[, -1], type = &quot;class&quot;)
 (accuracyTesting &lt;- mean(spotifyTesting[, 1] == predictTesting))</code></pre>
-<pre><code>[1] 0.3857961</code></pre>
+<pre><code>[1] 0.4000487</code></pre>
 <p>Evaluate prediction performance using a confusion matrix.</p>
 <pre class="r"><code>table(predicted = predictTesting, observed = spotifyTesting[, 1])</code></pre>
 <pre><code>         observed
-predicted edm latin pop r&amp;b rap rock
-    edm   621   112 171  56  52   60
-    latin 178   469 419 270 190  120
-    pop     0     0   0   0   0    0
-    r&amp;b    55   134  93 284  91  114
-    rap   309   396 305 487 984  168
-    rock  382   143 368 261 108  809</code></pre>
+predicted  edm latin  pop  r&amp;b  rap rock
+    edm    615   129  220   62   33   67
+    latin   70   292  135  111   74   19
+    pop     77   120  224   86   36   94
+    r&amp;b     71   171  165  359  140  157
+    rap    397   439  341  535 1047  178
+    rock   254    92  306  230  116  747</code></pre>
 <p>How does the model compare to random guessing?</p>
 <pre class="r"><code>predictRandom &lt;- sample(unique(spotifyTesting[, 1]),
                         size = nrow(spotifyTesting),
                         replace = TRUE,
                         prob = table(spotifyTesting[, 1]))
 (accuracyRandom &lt;- mean(spotifyTesting[, 1] == predictRandom))</code></pre>
-<pre><code>[1] 0.1678645</code></pre>
+<pre><code>[1] 0.1612864</code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
