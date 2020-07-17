@@ -22,10 +22,11 @@ table(spotify[, 1])
 spotify <- spotify[, 1:13]
 ```
 
-Split the data into training and testing sets.
+Split the data into training and testing sets. The training set should have 3/4
+of the samples.
 
 ```{r split}
-numTrainingSamples <- 3 / 4 * nrow(spotify)
+numTrainingSamples <- nrow(spotify) * 3/4
 trainingSet <- sample(seq_len(nrow(spotify)), size = numTrainingSamples)
 spotifyTraining <- spotify[trainingSet, ]
 spotifyTesting <- spotify[-trainingSet, ]
